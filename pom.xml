@@ -16,10 +16,18 @@
         <servlet.version>3.1.0</servlet.version>
         <jstl.version>1.2</jstl.version>
         <testng.version>6.8.8</testng.version>
+        <junit.version>3.8.1</junit.version>
         <aspectj.version>1.8.9</aspectj.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -91,12 +99,9 @@
             <version>${aspectj.version}</version>
         </dependency>
 
-
-
-
-
-
     </dependencies>
-
+    <build>
+        <finalName>springPractice</finalName>
+    </build>
 
 </project>
