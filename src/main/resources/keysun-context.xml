@@ -36,9 +36,16 @@
         </property>
     </bean>
 
+    <bean id="car"
+          class="com.keysun.spring.cyclelife.Car"
+          init-method="myInit"
+          p:brand="红旗CA72"
+          p:maxSpeed="200"
+    />
+
     <aop:config proxy-target-class="true">
         <aop:pointcut id="serviceMethod"
-                      expression="(execution(* com.keysun.service..*(..))) and
+                      expression="(execution(* com.keysun.login.service..*(..))) and
                       (@annotation(org.springframework.transaction.annotation.Transactional))"/>
         <aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice"/>
     </aop:config>
@@ -48,4 +55,12 @@
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
+
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+            p:viewClass="org.springframework.web.servlet.view.JstlView"
+            p:prefix="/WEB-INF/jsp/"
+            p:suffix=".jsp"
+    />
+
 </beans>
