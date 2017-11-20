@@ -43,6 +43,10 @@
           p:maxSpeed="200"
     />
 
+    <bean id="myBeanPostsProcessor" class="com.keysun.spring.cyclelife.MyBeanPostsProcessor"/>
+
+    <bean id="myBeanFactoryPostProcessor" class="com.keysun.spring.cyclelife.MyBeanFactoryPostProcessor"/>
+
     <aop:config proxy-target-class="true">
         <aop:pointcut id="serviceMethod"
                       expression="(execution(* com.keysun.login.service..*(..))) and

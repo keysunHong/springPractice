@@ -19,8 +19,8 @@ public class MyBeanPostsProcessor implements BeanPostProcessor {
         return bean;
     }
 
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if("car".equals("car")){
+    public Object postProcessAfterInitialization(Object bean, String cx) throws BeansException {
+        if("car".equals(cx)){
             Car car = (Car)bean;
             if(car.getMaxSpeed()>=200){
                 System.out.println("调用了BeanPostProcessor.postProcessAfterInitialization(),将maxSpeed调整为200");

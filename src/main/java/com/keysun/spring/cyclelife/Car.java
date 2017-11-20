@@ -76,9 +76,7 @@ public class Car implements BeanFactoryAware,BeanNameAware,InitializingBean,Disp
 
     public void myInit(){
         System.out.println("调用init-method所指定的myInit方法,将maxSpeed指定为240");
-        java.text.DecimalFormat   df   =new   java.text.DecimalFormat("#.0000");
-        String format = df.format("22.3000");
-        System.out.println(format);
+        this.maxSpeed=240;
     }
 
     public void myDestory(){

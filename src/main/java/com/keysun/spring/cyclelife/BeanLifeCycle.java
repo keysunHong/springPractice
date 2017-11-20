@@ -4,6 +4,8 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -27,7 +29,15 @@ public class BeanLifeCycle {
         System.out.println("car==car2:"+(car==car2));
         ((DefaultListableBeanFactory)beanFactory).destroySingletons();
     }
+
+    private static void lifeCycleInApplicationContext(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:keysun-context.xml");
+        Car car = (Car)applicationContext.getBean("car");
+        car.introduce();
+    }
     public static void main(String[] args) {
-        lifeCycleInBeanFactory();
+
+        //lifeCycleInBeanFactory();
+        lifeCycleInApplicationContext();
     }
 }
